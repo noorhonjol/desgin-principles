@@ -1,2 +1,3 @@
 # desgin-principle
-![alt text](https://github.com/noorhonjol/desgin-principles/dev/arrow_forward_ios_FILL0_wght400_GRAD0_opsz48.png?raw=true](https://raw.githubusercontent.com/noorhonjol/desgin-principles/dev/arrow_forward_ios_FILL0_wght400_GRAD0_opsz48.png?token=GHSAT0AAAAAACJPMVES6DPGWLQOIMNO5AEWZKCTAWQ)https://raw.githubusercontent.com/noorhonjol/desgin-principles/dev/arrow_forward_ios_FILL0_wght400_GRAD0_opsz48.png?token=GHSAT0AAAAAACJPMVES6DPGWLQOIMNO5AEWZKCTAWQ)
+![alt text](https://drive.google.com/file/d/1tcz1b_fZkyIjZYRgixgEtlOhSh1iA5OZ/view)
+
