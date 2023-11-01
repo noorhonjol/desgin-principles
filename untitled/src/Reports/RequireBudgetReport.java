@@ -9,6 +9,6 @@ public class RequireBudgetReport implements IReport {
     @Override
     public void generateReport() {
         double requireBudget=user.getHourlyRate()*user.getMonthCompletedHour();
-        System.out.println("The Require Budget is "+requireBudget);
+        System.out.println("The Require Budget for "+user.getName()+" is "+requireBudget);
     }
 }

@@ -1,7 +1,5 @@
 package database;
-import models.Director;
-import models.Manager;
-import models.Staff;
+import Factory.UserFactory;
 import models.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +7,9 @@ import java.util.List;
 public class FakeDB implements DataBase {
     private final ArrayList<User>userList;
     private static FakeDB dataBase = null;
-
     private FakeDB() {
         userList=new ArrayList<>();
+        addSomeUsers();
     }
     public static FakeDB getInstance() {
 
@@ -26,21 +24,19 @@ public class FakeDB implements DataBase {
     }
     @Override
     public <T >T query(String queryType) {
-        addSomeUsers();
         ArrayList<User> filteredList = new ArrayList<>();
-        if(mangerQueryFilter(queryType)){
+        if(getMangersQueryFilter(queryType)){
             for (User user: userList) {
                 String userType=user.getUserType();
-                if(isManger(userType)||isStaff(userType)){
+                if(isManger(userType)){
                     filteredList.add(user);
                 }
             }
             return (T)filteredList;
-
-        }else if(staffsQueryFilter(queryType)){
+        }else if(getDirectorsQueryFilter(queryType)){
             for (User user: userList) {
                 String userType=user.getUserType();
-                if(isStaff(userType)){
+                if(isDirector(userType)){
                     filteredList.add(user);
                 }
             }
@@ -48,27 +44,31 @@ public class FakeDB implements DataBase {
         }
         return null;
     }
-    private boolean mangerQueryFilter(String queryType){
-        return "staffs and mangers".equals(queryType);
+    private boolean getMangersQueryFilter(String query){
+        return "get mangers".equals(query);
     }
-    private boolean staffsQueryFilter(String queryType){
+    private boolean getDirectorsQueryFilter(String query){
+        return "get directors".equals(query);
+    }
 
-        return "staffs".equals(queryType);
-    }
     private boolean isManger(String userType){
         return "manger".equals(userType);
     }
-    private boolean isStaff(String userType){
-        return "staff".equals(userType);
+    private boolean isDirector(String userType){
+        return "director".equals(userType);
     }
     private void addSomeUsers(){
-        userList.add(new Director("D001", "David", 40, 35.0, 200));
-        userList.add(new Director("D002", "kevin", 40, 35.0, 200));
-        userList.add(new Manager("1", "John", 30, 20.0, 160));
-        userList.add(new Manager("2", "Alice", 28, 18.0, 140));
-        userList.add(new Manager("3", "Bob", 35, 22.0, 150));
-        userList.add(new Staff("4", "Charlie", 25, 25.0, 180));
-        userList.add(new Staff("5", "Emma", 29, 23.0, 170));
-        userList.add(new Staff("6", "larry", 50, 15.0, 200));
+        User staff1=UserFactory.createStaff("4", "Charlie", 25, 25.0, 180);
+        User staff2=UserFactory.createStaff("5", "Emma", 29, 23.0, 170);
+        User staff3=UserFactory.createStaff("5", "Emma", 29, 23.0, 170);
+        User staff4=UserFactory.createStaff("6", "larry", 50, 15.0, 200);
+        User manger1=UserFactory.createManager("2", "Alice", 28, 18.0, 140,List.of(staff1,staff2));
+        User manger2=UserFactory.createManager("3", "Bob", 35, 22.0, 150,List.of(staff3,staff4));
+        User director1=UserFactory.createDirector("D001", "David", 40, 35.0, 200,List.of(manger1,staff2,staff1));
+        User director2=UserFactory.createDirector("D002", "kevin", 45, 35.0, 200,List.of(manger2,staff4));
+
+        userList.addAll(List.of(staff1,staff2,staff3,staff4,director1,director2,manger1,manger2));
+
+
     }
 }

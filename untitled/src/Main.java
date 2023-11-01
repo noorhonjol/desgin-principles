@@ -1,30 +1,18 @@
+import Factory.ReportFactory;
 import Reports.ReportManger;
-import Reports.RequireBudgetReport;
-import Reports.StaffReport;
+import database.FakeDB;
 import models.Director;
-import models.Manager;
-
+import java.util.List;
 public class Main {
     public static void main(String[] args) {
+        //get all directors
+        List<Director>directors= FakeDB.getInstance().query("get directors");
+        ReportManger myReport=new ReportManger();
+        for(Director director:directors){
+            myReport.addReport(ReportFactory.createRequireBudget(director));
+            myReport.addReport(ReportFactory.createStaffReport(director.getStaffsAndMangers()));
+        }
 
-        Director d=new Director("ddd1","ahmad mohsen",10,25,100);
-        Manager m=new Manager("M1","islam halabone",22,32,100);
-
-        m.getDataFromDb();
-        d.getDataFromDb();
-
-        ReportManger reportManger=new ReportManger();
-        ReportManger reportManger2=new ReportManger();
-
-        reportManger.addReport(new RequireBudgetReport(d));
-        reportManger.addReport(new StaffReport(d.getStaffsAndMangers()));
-
-        reportManger2.addReport(new RequireBudgetReport(m));
-        reportManger2.addReport(new StaffReport(m.getStaffs()));
-
-        reportManger2.generateReports();
-        reportManger.generateReports();
-
+        myReport.generateReports();
     }
 }
-

@@ -1,5 +1,4 @@
 package models;
-
 public abstract class User {
     public User(String ID, String name, int age, double hourlyRate, double monthCompletedHour, String userType) {
         this.ID = ID;
