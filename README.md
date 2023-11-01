@@ -1,2 +1,2 @@
 # desgin-principle
-![alt text](https://i.ibb.co/PmPhqJT/arrow-forward-ios-FILL0-wght400-GRAD0-opsz48.png)
+![alt text](https://drive.google.com/uc?id=1tcz1b_fZkyIjZYRgixgEtlOhSh1iA5OZ&export=view)
