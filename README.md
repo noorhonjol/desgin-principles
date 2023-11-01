@@ -1,2 +1,2 @@
 # desgin-principle
-![alt text](https://drive.google.com/uc?id=1tcz1b_fZkyIjZYRgixgEtlOhSh1iA5OZ&export=view)
+![alt text](https://drive.google.com/uc?id=1FMUig_R4a1ikPpIc5B8aDQw-sTmfmpFr&export=view)
