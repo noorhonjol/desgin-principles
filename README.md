@@ -13,4 +13,4 @@
 - ReportManager Class for Single Responsibility and Polymorphism: Implementing a ReportManager class that contains a set from type of interface IReport to take advantage of polymorphism and apply single responsibility princible by sperate whole report process from User.
 
 
-![alt text](https://drive.google.com/uc?id=1FMUig_R4a1ikPpIc5B8aDQw-sTmfmpFr&export=view)
+![alt text](https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaAvwjopGBbCheP3HMQh0TEpBOYaGhD-Z7PSlegehiy1kg0nX3Dn9AyGY2XmJ3Tc4Qpg7SByHIUSKmF1fjWpUcWnmd6uZQ=w2560-h1283)
